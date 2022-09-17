@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Admin() {
 
-  const [links, setLinks] = useState({});
+  const [links, setLinks] = useState({ _id: '', linkObj:{name: '', link: ''}});
 
   const clickAddLink = () => addToMap();
 
@@ -18,7 +18,7 @@ export default function Admin() {
  
 
   const addToMap = () => {
-    setLinks((prev) => ({...prev, _id: "4a5d6v", name: '', link: ''}))};
+    setLinks((prev) => ({...prev, _id: "4a5d6v", linkObj:{name: '', link: ''}}))};
   
   const updateMap = (key, value) => {
     setLinks((prev) => new Map([...prev, [key, value]]));
@@ -64,19 +64,18 @@ export default function Admin() {
                               <input
                                 type="text"
                                 required
-                                value={value}
+                                value={links.linkObj.name}
                                 onChange={(e) =>
-                                  setLinks({ value, name: e.target.value })
+                                  setLinks({ ...links.linkObj, name: e.target.value })
                                 }
                               />
                               <span>Link</span>
                               <input
-                                id={key}
                                 type="text"
                                 required
-                                Value={value}
+                                Value={links.linkObj.link}
                                 onChange={(e) =>
-                                  setLinks({ value, link: e.target.value })
+                                  setLinks({ ...links.linkObj, link: e.target.value })
                                 }
                               />
                             </form>
