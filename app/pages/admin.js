@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Link from "next/link";
 
 export default function Admin() {
-  const [link, setLink] = useState({ name: "", link: "" });
-  const [links, setLinks] = useState(new Map());
 
-  const clickAddLink = () => addToMap(links.size + 1, link);
+  const [links, setLinks] = useState({});
+
+  const clickAddLink = () => addToMap();
+
   const deleteOnMap = (key) => {
     setLinks((prev) => {
       const newState = new Map(prev);
@@ -13,27 +14,12 @@ export default function Admin() {
       return newState;
     });
   };
+
+ 
+
+  const addToMap = () => {
+    setLinks((prev) => ({...prev, _id: "4a5d6v", name: '', link: ''}))};
   
- const resetLink = () =>
- {
-  setLink({ ...link, name: '' })
-  setLink({ ...link, link: '' })
- }
-
-  const getName = (key) =>
-  { 
-    let nameFromKey = links.get(key)
-    return nameFromKey.name
-  }
-
-  const getLink = (key) =>
-  { 
-    let linkFromKey = links.get(key)
-    return linkFromKey.link
-  }
-  const addToMap = (key, value) => {
-    setLinks((prev) => new Map([...prev, [key, value]]));
-  };
   const updateMap = (key, value) => {
     setLinks((prev) => new Map([...prev, [key, value]]));
   };
@@ -43,7 +29,7 @@ export default function Admin() {
   };
 
   const [prev, setPrev] = useState(false);
-  const handleClickPrev = () => setPrev(!prev);
+  const handleClickPrev = () => setPrev((p) => !p);
 
   return (
     <div className="bg-red-200 w-screen h-screen flex flex-col lgs:flex-row relative flex-1">
@@ -70,41 +56,33 @@ export default function Admin() {
                 </div>
                 <div className="flex w-screen mx-4 mt-2">
                   <div>
-                    {[...links.keys()].map((key) => (
-                      <div key={key} id = {key}>
-                        {links.size > 0 && (
+                    {[Object.entries(links)].map(([key, value]) => (
+                        <div key={key} id={key}>
                           <div>
-                            <form id = {key}>
+                            <form id={key}>
                               <span>Name</span>
-                              <input id = {key}
+                              <input
                                 type="text"
-                                placeholder={getName(key)} 
                                 required
-                                value={link.name}
+                                value={value}
                                 onChange={(e) =>
-                                  setLink({ ...link, name: e.target.value })
+                                  setLinks({ value, name: e.target.value })
                                 }
-                                
                               />
                               <span>Link</span>
-                              <input id = {key}
+                              <input
+                                id={key}
                                 type="text"
-                                placeholder={getLink(key)} 
                                 required
-                                defaultvalue={link.link}
+                                Value={value}
                                 onChange={(e) =>
-                                  setLink({...link, link: e.target.value })
+                                  setLinks({ value, link: e.target.value })
                                 }
-                                
-                                
                               />
-                              {link.name != '' && link.link != '' && (resetLink())}
-                              
                             </form>
                           </div>
-                        )}
-                      </div>
-                    ))}
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>
@@ -126,5 +104,9 @@ export default function Admin() {
       </div>
     </div>
   );
-  
-}
+
+ }
+          
+          
+          
+
