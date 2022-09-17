@@ -1,25 +1,49 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { stringify } from "gray-matter";
 
 export default function Admin() {
-  const [links, setLinks] = useState([{id: 0, name: "", link: ""}]);
-  const [amountOfLinks, setAmount] = useState(0);
- 
-  const clickAddLink = () => {
-    setAmount(amountOfLinks + 1); 
-    setLinks(links => [...links, {id: 0, name: "", link: ""}]);
-    }
- 
-    function change (index)
-    {
-      links[index].name = document.getElementById("name");
-    }
-  const [Prev, setPrev] = useState(false);
-  const handleClickPrev = () => setPrev(!Prev);
+  const [link, setLink] = useState({ name: "", link: "" });
+  const [links, setLinks] = useState(new Map());
+
+  const clickAddLink = () => addToMap(links.size + 1, link);
+  const deleteOnMap = (key) => {
+    setLinks((prev) => {
+      const newState = new Map(prev);
+      newState.delete(key);
+      return newState;
+    });
+  };
+  
+ const resetLink = () =>
+ {
+  setLink({ ...link, name: '' })
+  setLink({ ...link, link: '' })
+ }
+
+  const getName = (key) =>
+  { 
+    let nameFromKey = links.get(key)
+    return nameFromKey.name
+  }
+
+  const getLink = (key) =>
+  { 
+    let linkFromKey = links.get(key)
+    return linkFromKey.link
+  }
+  const addToMap = (key, value) => {
+    setLinks((prev) => new Map([...prev, [key, value]]));
+  };
+  const updateMap = (key, value) => {
+    setLinks((prev) => new Map([...prev, [key, value]]));
+  };
+
+  const clear = () => {
+    setLinks((prev) => new Map(prev.clear()));
+  };
+
+  const [prev, setPrev] = useState(false);
+  const handleClickPrev = () => setPrev(!prev);
 
   return (
     <div className="bg-red-200 w-screen h-screen flex flex-col lgs:flex-row relative flex-1">
@@ -46,16 +70,39 @@ export default function Admin() {
                 </div>
                 <div className="flex w-screen mx-4 mt-2">
                   <div>
-                    {links.map((link, index) => (
-                      <div key={index}>
-                        {amountOfLinks > 0 &&  (
-                        <div>
-                          <span>Name</span>
-                          <input name="name" type="text" id="name" required  onBlur={change(index)}/>
-                          <span>Link</span>
-                          <input name="link" type="text" id="link" required />
-                        </div>
-                          )}
+                    {[...links.keys()].map((key) => (
+                      <div key={key} id = {key}>
+                        {links.size > 0 && (
+                          <div>
+                            <form id = {key}>
+                              <span>Name</span>
+                              <input id = {key}
+                                type="text"
+                                placeholder={getName(key)} 
+                                required
+                                value={link.name}
+                                onChange={(e) =>
+                                  setLink({ ...link, name: e.target.value })
+                                }
+                                
+                              />
+                              <span>Link</span>
+                              <input id = {key}
+                                type="text"
+                                placeholder={getLink(key)} 
+                                required
+                                defaultvalue={link.link}
+                                onChange={(e) =>
+                                  setLink({...link, link: e.target.value })
+                                }
+                                
+                                
+                              />
+                              {link.name != '' && link.link != '' && (resetLink())}
+                              
+                            </form>
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -65,7 +112,7 @@ export default function Admin() {
           </div>
           <div
             className={
-              !Prev
+              !prev
                 ? "lgs:h-full lgs:w-[45%] hidden lgs:inline"
                 : "SlideUp -translate-y-[122px] scale-y-[1.005]"
             }
@@ -79,4 +126,5 @@ export default function Admin() {
       </div>
     </div>
   );
+  
 }
