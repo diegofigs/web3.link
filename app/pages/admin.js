@@ -1,36 +1,40 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Admin() {
+  const [links, setLinks] = useState({});
 
-  const [links, setLinks] = useState({ _id: '', linkObj:{name: '', link: ''}});
+  const onDelete = (key) => {
+    let newLinks = { ...links};
+    delete newLinks[key];
+    setLinks(newLinks);
+    console.log(newLinks);
+  };
 
-  const clickAddLink = () => addToMap();
-
-  const deleteOnMap = (key) => {
+  const onAdd = () => {
     setLinks((prev) => {
-      const newState = new Map(prev);
-      newState.delete(key);
-      return newState;
+      console.log(prev)
+      return {
+        ...prev,
+        [uuidv4()]: { name: "", link: "" },
+      };
     });
   };
 
- 
-
-  const addToMap = () => {
-    setLinks((prev) => ({...prev, _id: "4a5d6v", linkObj:{name: '', link: ''}}))};
-  
-  const updateMap = (key, value) => {
-    setLinks((prev) => new Map([...prev, [key, value]]));
-  };
-
-  const clear = () => {
-    setLinks((prev) => new Map(prev.clear()));
+  const onUpdate = (key, value) => {
+    setLinks((prev) => {
+      console.log(prev)
+      return {
+        ...prev,
+        [key]: value,
+      };
+    });
   };
 
   const [prev, setPrev] = useState(false);
   const handleClickPrev = () => setPrev((p) => !p);
-
+console.log(links)
   return (
     <div className="bg-red-200 w-screen h-screen flex flex-col lgs:flex-row relative flex-1">
       <section className=" bg-white lgs:h-full lgs:w-[56px] h-[42px] flex"></section>
@@ -51,37 +55,42 @@ export default function Admin() {
             <div className="mb-12 mx-4 w-screen ">
               <div className="my-4">
                 <div className="mx-8 space-x-32 flex flex-row w-screen ">
-                  <button onClick={clickAddLink}>Add New Link</button>
+                  <button onClick={onAdd}>Add New Link</button>
                   <button>Suggestion</button>
                 </div>
                 <div className="flex w-screen mx-4 mt-2">
                   <div>
-                    {[Object.entries(links)].map(([key, value]) => (
-                        <div key={key} id={key}>
-                          <div>
-                            <form id={key}>
-                              <span>Name</span>
-                              <input
-                                type="text"
-                                required
-                                value={links.linkObj.name}
-                                onChange={(e) =>
-                                  setLinks({ ...links.linkObj, name: e.target.value })
-                                }
-                              />
-                              <span>Link</span>
-                              <input
-                                type="text"
-                                required
-                                Value={links.linkObj.link}
-                                onChange={(e) =>
-                                  setLinks({ ...links.linkObj, link: e.target.value })
-                                }
-                              />
-                            </form>
-                          </div>
+                    {Object.entries(links).map(([key, value]) => (
+                      <div key={key}>
+                        <div>
+                          <span>Name</span>
+                          <input
+                            type="text"
+                            value={value.name}
+                            onChange={(e) =>
+                              onUpdate(key, {
+                                ...value,
+                                name: e.target.value,
+                              })
+                            }
+                          />
+                          <span>Link</span>
+                          <input
+                            type="text"
+                            value={value.link}
+                            onChange={(e) =>
+                              onUpdate(key, {
+                                ...value,
+                                link: e.target.value,
+                              })
+                            }
+                          />
+                          <button onClick={() => onDelete(key)}>
+                            Delete Link
+                          </button>
                         </div>
-                      ))}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -103,9 +112,4 @@ export default function Admin() {
       </div>
     </div>
   );
-
- }
-          
-          
-          
-
+}
