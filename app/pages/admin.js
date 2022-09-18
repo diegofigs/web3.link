@@ -9,12 +9,10 @@ export default function Admin() {
     let newLinks = { ...links};
     delete newLinks[key];
     setLinks(newLinks);
-    console.log(newLinks);
   };
 
   const onAdd = () => {
     setLinks((prev) => {
-      console.log(prev)
       return {
         ...prev,
         [uuidv4()]: { name: "", link: "" },
@@ -24,7 +22,6 @@ export default function Admin() {
 
   const onUpdate = (key, value) => {
     setLinks((prev) => {
-      console.log(prev)
       return {
         ...prev,
         [key]: value,
@@ -34,7 +31,6 @@ export default function Admin() {
 
   const [prev, setPrev] = useState(false);
   const handleClickPrev = () => setPrev((p) => !p);
-console.log(links)
   return (
     <div className="bg-red-200 w-screen h-screen flex flex-col lgs:flex-row relative flex-1">
       <section className=" bg-white lgs:h-full lgs:w-[56px] h-[42px] flex"></section>
