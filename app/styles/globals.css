@@ -7,6 +7,10 @@
   background: rgb(2,74,102);
   background: linear-gradient(313deg, rgba(2,74,102,1) 0%, rgba(7,208,255,1) 59%, rgba(0,212,255,1) 100%);
 }
+.AddNew_Suggestion_Btn
+{
+  @apply bg-white rounded-[1.1rem] border-white border-x-[1rem] lgs:border-x-[5rem] border-y-[0.5rem] text-[20px] font-bold;
+}
 .HomeSetting
 {
   @apply flex flex-col md:flex-row md:h-[750px] md:w-screen  translate-y-[60px] md:translate-y-[120px] md:justify-center gap-5 md:gap-5;
