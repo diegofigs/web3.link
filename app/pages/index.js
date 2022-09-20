@@ -6,13 +6,9 @@ import { HomeContent } from "../components/HomeContent";
 
 export default function Home() {
   return (
-    <div className="GeneralBG">
-      <div>
+    <div className="flex flex-col">
         <NavBar />
-      </div>
-      <div>
         <HomeContent />
-      </div>
     </div>
   );
 }
