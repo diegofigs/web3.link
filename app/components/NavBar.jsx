@@ -8,7 +8,7 @@ export const NavBar = () => {
   const handleClickNav = () => setNav(!nav);
   return (
     <div className="relative flex justify-center w-screen z-40 ">
-      <div className="w-screen drop-shadow-lg bg-white rounded-full  mx-8 lg:mx-[150px] z-50 border-white mt-8">
+      <div className="w-screen drop-shadow-lg adminContentsBG rounded-full  mx-8 lg:mx-[150px] z-50 mt-8">
         <div className="px-2 flex my-2 sm:my-5">
           <div className="flex w-full">
             <div className="text-2xl font-bold ml-4 lg:text-3xl pr-4">
@@ -23,7 +23,10 @@ export const NavBar = () => {
               </li>
               <li>Contact Us</li>
             </ul>
-            <div className="hidden md:flex ml-auto space-x-3">
+            <div className="hidden md:flex ml-auto space-x-4">
+              <button>
+                <Link href="/admin">Admin (provisional)</Link>{" "}
+              </button>
               <button>Login</button>
               <button className="pr-4">Sign Up</button>
             </div>
@@ -40,9 +43,9 @@ export const NavBar = () => {
           </div>
         </div>
       </div>
-      
-        <div className={!nav ? "hidden" : "md:hidden SlideLeft flex flex-col"}>
-            <ul className="mt-28 text-[32px]">
+
+      <div className={!nav ? "hidden" : "md:hidden SlideLeft flex flex-col"}>
+        <ul className="mt-28 text-[32px]">
           <li className="border-b-2 border-zinc-300 w-full  text-center">
             <Link href="/">Home</Link>
           </li>
@@ -50,7 +53,7 @@ export const NavBar = () => {
             <Link href="/about">About</Link>
           </li>
           <li className="border-b-2 border-zinc-300 w-full text-center">
-           <Link href ="/admin">Admin (provisional)</Link> 
+            <Link href="/admin">Admin (provisional)</Link>
           </li>
           <button className="border-b-2 border-zinc-300 px-8 w-screen text-black  md:mx-auto">
             Sign In
@@ -58,9 +61,8 @@ export const NavBar = () => {
           <button className="border-b-2 border-zinc-300 px-8 w-screen md:mx-auto">
             Sign Up
           </button>
-          </ul>
-        </div>
-     
+        </ul>
+      </div>
     </div>
   );
 };
