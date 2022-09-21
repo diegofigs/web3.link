@@ -1,27 +1,22 @@
 import React from "react";
-//Share your decentralized profile in one unique link.
-//bg-gradient-to-r from-cyan-500 to-blue-500
+import Image from "next/image";
+import asset from "../assets/HomePic1.jpg";
 export const HomeContent = () => {
   return (
-    <div className="flex flex-col md:flex-row w-screen h-screen">
-      <div className="HomeSetting">
-        <div className="flex flex-col">
-          <div className="flex psm:text-[35px] font-extrabold justify-center md:justify-start md:w-[280px] md:h-[350px] ">
-            <span className="w-[200px] relative -z-10">
-              Share your decentralized profile in one unique link.
-            </span>
+    <div className="flex flex-col w-screen h-screen">
+      <div className="w-[75%] h-[75%] flex self-center md:flex-row flex-col justify-center md:justify-start adminContentsBG rounded-[1.5rem] mt-8">
+        <div className="flex lg:flex-row flex-col flex-1 p-4">
+          <div className="lg:w-[50%] px-6 h-auto">
+            <div className="font-extrabold text-[36px] md:text-[48px] flex-1 flex">
+            <span>Your decentralized profile in one link.</span>
+            </div>
+            <div className="text-[28px] md:text-[36px] flex shrink">
+            <span>Share links of socials and address with a single domain.</span>
+            </div>
           </div>
-          <div className="flex psm:text-[25px] font-extrabold w-screen justify-center  md:justify-start md:w-[250px] md:h-[350px]">
-            <span className="w-[200px] relative -z-10">
-              Share your decentralized profile in one unique link.
-            </span>
+          <div className="w-auto h-auto flex flex-1 self-center lg:self-start px-8 py-4 lg:py-0">
+          <Image src={asset}  className="rounded-[1.5rem]"></Image>
           </div>
-        </div>
-        <div className="flex psm:font-[25px] font-extrabold w-screen justify-center md:w-[250px] md:h-[350px]">
-          <span className="w-[200px]  relative -z-10">
-            Share your decentralized profile in one unique link. Pic here or
-            whatever
-          </span>
         </div>
       </div>
     </div>
