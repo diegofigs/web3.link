@@ -8,7 +8,7 @@ export const NavBar = () => {
   const handleClickNav = () => setNav(!nav);
   return (
     <div className="relative flex justify-center w-screen z-40 ">
-      <div className="w-screen drop-shadow-lg bg-white rounded-full  mx-8 lg:mx-[150px] z-50 border-white mt-8">
+      <div className="w-screen drop-shadow-lg adminContentsBG rounded-full  mx-8 lg:mx-[150px] z-50 mt-8">
         <div className="px-2 flex my-2 sm:my-5">
           <div className="flex w-full">
             <div className="text-2xl font-bold ml-4 lg:text-3xl pr-4">
