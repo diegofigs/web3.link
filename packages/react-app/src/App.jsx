@@ -29,7 +29,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { Home, ExampleUI, Hints, Subgraph } from "./views";
+import { Home, HomeMain, ExampleUI, Hints, Subgraph, Admin} from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -389,6 +389,14 @@ function App(props) {
             writeContracts={writeContracts}
             mainnetProvider={mainnetProvider}
           />
+        </Route>
+        <Route exact path="/homemain">
+          {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
+          <HomeMain/>
+        </Route>
+        <Route exact path="/admin">
+          {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
+          <Admin/>
         </Route>
       </Switch>
 

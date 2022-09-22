@@ -1,5 +1,5 @@
 import React from "react";
-import asset from "../assets/HomePic1.jpg";
+import asset from "../../assets/HomePic1.jpg";
 export const HomeContent = () => {
   return (
     <div className="flex flex-col w-screen h-screen">

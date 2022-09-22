@@ -1,12 +1,11 @@
-import { NavBar } from "../components/NavBar";
-import { HomeContent } from "../components/HomeContent";
+import { NavBar } from "../components/ui/NavBar";
+import { HomeContent } from "../components/ui/HomeContent";
 
-export default function Home() {
-    return (
-        <div className="flex flex-col">
-        <NavBar />
-        <HomeContent />
-        </div>
-     
-    )
-  }
+export default function HomeMain() {
+  return (
+    <body className="flex flex-col">
+      <NavBar />
+      <HomeContent />
+    </body>
+  );
+}
