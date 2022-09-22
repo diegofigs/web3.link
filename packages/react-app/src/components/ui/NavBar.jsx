@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline/";
+import {Admin, HomeMain, About} from "../../views";
 //'bg-blue-100 rounded-2xl
 
 export const NavBar = () => {
@@ -16,16 +17,16 @@ export const NavBar = () => {
             </div>
             <ul className="hidden md:flex space-x-4 items-center pl-2">
               <li>
-                <Link href="/">Home</Link>
+                <Link to="/homemain">Home</Link>
               </li>
               <li>
-                <Link href="/about">About</Link>
+                <Link to="/about">About</Link>
               </li>
               <li>Contact Us</li>
             </ul>
             <div className="hidden md:flex ml-auto space-x-4">
               <button>
-                <Link href="/admin">Admin (provisional)</Link>{" "}
+                <Link to="/admin">Admin (provisional)</Link>
               </button>
               <button>Login</button>
               <button className="pr-4">Sign Up</button>
@@ -53,7 +54,7 @@ export const NavBar = () => {
             <Link href="/about">About</Link>
           </li>
           <li className="border-b-2 border-zinc-300 w-full text-center">
-            <Link href="/admin">Admin (provisional)</Link>
+            <Link href={Admin}>Admin (provisional)</Link>
           </li>
           <button className="border-b-2 border-zinc-300 px-8 w-screen text-black  md:mx-auto">
             Sign In

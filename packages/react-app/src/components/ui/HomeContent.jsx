@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import asset from "../assets/HomePic1.jpg";
+import asset from "../../assets/HomePic1.jpg";
 export const HomeContent = () => {
   return (
     <div className="flex flex-col w-screen h-screen">
@@ -15,7 +14,7 @@ export const HomeContent = () => {
             </div>
           </div>
           <div className="flex self-center lg:self-start px-4 py-2 lg:py-0 lg:w-[75%]">
-          <Image src={asset}  className="rounded-[1.5rem] scale-90"></Image>
+          <img src={asset}  className="rounded-[1.5rem] scale-90"/>
           </div>
         </div>
       </div>
