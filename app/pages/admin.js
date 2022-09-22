@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from 'react-router';
 import { TrashIcon, HomeIcon } from "@heroicons/react/24/outline/";
 
 
