@@ -3,7 +3,14 @@ import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 import { TrashIcon, HomeIcon } from "@heroicons/react/24/outline/";
 
+
+
 export default function Admin() {
+  const whiteListBrandNames = [
+    "instagram", "twitter", "twitch", "tiktok", "youtube", "github"
+  ]
+
+  
   const [links, setLinks] = useState({});
 
   const onDelete = (key) => {
