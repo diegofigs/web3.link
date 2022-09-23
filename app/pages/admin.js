@@ -3,14 +3,39 @@ import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
 import { TrashIcon, HomeIcon } from "@heroicons/react/24/outline/";
 
-
-
 export default function Admin() {
   const whiteListBrandNames = [
-    "instagram", "twitter", "twitch", "tiktok", "youtube", "github"
-  ]
+    "instagram.com",
+    "twitter.com",
+    "twitch.tv",
+    "tiktok.com",
+    "youtube.com",
+    "github.com",
+  ];
 
-  
+  const BrandBackground = (brand) => {
+    for (const whiteListBrand of whiteListBrandNames) {
+      if (brand.includes(whiteListBrand)) {
+        switch(whiteListBrand)
+        {
+          case "instagram.com":
+            return "instagramThemeLinks";
+          case "twitter.com":
+            return "twitterThemeLinks";
+          case "twitch.tv":
+            return "twitchThemeLinks";
+          case "tiktok.com":
+            return "tiktokThemeLinks";
+          case "youtube.com":
+            return "youtubeThemeLinks";
+          case "github.com":
+            return "githubThemeLinks";
+        }   
+      }
+    }
+    return "adminContentsBG";
+  };
+
   const [links, setLinks] = useState({});
 
   const onDelete = (key) => {
@@ -80,37 +105,39 @@ export default function Admin() {
                       {Object.entries(links).map(([key, value]) => (
                         <div
                           key={key}
-                          className="flex flex-1 flex-col  w-[80%] lgs:w-[60%] adminContentsBG rounded-[1.1rem] adminBorders border-x-[1rem] border-y-[1rem]"
+                          className="flex flex-1 flex-col  w-[80%] lgs:w-[60%]"
                         >
-                          <input
-                            className="flex flex-0.5 w-full adminContentsBG"
-                            type="text"
-                            placeholder="Title"
-                            value={value.name}
-                            onChange={(e) =>
-                              onUpdate(key, {
-                                ...value,
-                                name: e.target.value,
-                              })
-                            }
-                          />
+                          <div className={` flex flex-1 flex-col  w-full lgs:w-full rounded-[0.8rem] font-bold ${BrandBackground(value.link)}`}>
+                            <input
+                              className="flex flex-0.5 w-full pt-2 px-2 bg-transparent"
+                              type="text"
+                              placeholder="Title"
+                              value={value.name}
+                              onChange={(e) =>
+                                onUpdate(key, {
+                                  ...value,
+                                  name: e.target.value,
+                                })
+                              }
+                            />
 
-                          <input
-                            className="flex flex-0.5 w-full mt-1 adminContentsBG"
-                            type="text"
-                            placeholder="Link"
-                            value={value.link}
-                            onChange={(e) =>
-                              onUpdate(key, {
-                                ...value,
-                                link: e.target.value,
-                              })
-                            }
-                          />
-                          <div className="flex flex-1 self-end mt-1">
-                            <button onClick={() => onDelete(key)}>
-                              <TrashIcon className="w-4 lgs:w-6" />
-                            </button>
+                            <input
+                              className="flex flex-0.5 w-full mt-1 px-2 bg-transparent"
+                              type="text"
+                              placeholder="Link"
+                              value={value.link}
+                              onChange={(e) =>
+                                onUpdate(key, {
+                                  ...value,
+                                  link: e.target.value,
+                                })
+                              }
+                            />
+                            <div className="flex flex-1 self-end mt-1 px-2 pb-2">
+                              <button onClick={() => onDelete(key)}>
+                                <TrashIcon className="w-4 lgs:w-6" />
+                              </button>
+                            </div>
                           </div>
                         </div>
                       ))}

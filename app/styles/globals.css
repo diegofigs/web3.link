@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.twitterThemeLinks
+{
+  border-color: rgb(29 161 242);
+  background-color: rgb(29 161 242);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.twitchThemeLinks
+{
+  background-color: rgb(145 70 255);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.youtubeThemeLinks
+{
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.tiktokThemeLinks
+{
+  background: rgb(0,242,234);
+  background: linear-gradient(117deg, rgba(0,242,234,1) 0%, rgba(0,7,8,1) 53%, rgba(255,0,80,1) 100%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.instagramThemeLinks
+{
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.githubThemeLinks
+{
+  background: rgb(27,31,34);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
 .adminBG
 {
   background: rgba(66, 71, 92, 1);
