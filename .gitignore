@@ -71,8 +71,4 @@ yarn-error.log*
 *.stackdump
 
 # doc directory
-<<<<<<< HEAD
 /doc
-=======
-/doc
->>>>>>> main
