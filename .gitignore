@@ -1,6 +1,8 @@
 app/node_modules
-.vscode
 app/.next
+.vscode
+
+packages/react-app/public/index.css
 
 packages/subgraph/generated
 packages/subgraph/abis/*
@@ -69,4 +71,8 @@ yarn-error.log*
 *.stackdump
 
 # doc directory
+<<<<<<< HEAD
 /doc
+=======
+/doc
+>>>>>>> main
