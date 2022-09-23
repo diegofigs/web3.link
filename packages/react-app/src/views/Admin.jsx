@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Link from "next/link";
+import {Link} from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { TrashIcon, HomeIcon } from "@heroicons/react/24/outline/";
 
@@ -68,7 +68,7 @@ export default function Admin() {
     <div className="adminBG w-screen h-screen flex flex-col lgs:flex-row overflow-hidden">
       <section className="adminContentsBG lgs:h-full lgs:w-[2.5%] h-[6%] flex lgs:justify-items-center lgs:flex-col">
         <button>
-          <Link href="/">
+          <Link to="/homemain">
             <HomeIcon className="lgs:w-[80%] w-10" />
           </Link>
         </button>
@@ -78,15 +78,15 @@ export default function Admin() {
           <div className="lgs:h-full lgs:w-[50%] flex h-2/3">
             <ul className="flex flex-row space-x-2 pl-6 text-[28px] text-white items-center">
               <li className="adminNavBG hover:text-black hover:rounded-[1.1rem] px-6">
-                <Link href="/admin">Links</Link>
+                <Link to="/admin">Links</Link>
               </li>
               <li className="adminNavBG hover:text-black hover:rounded-[1.1rem] px-6">
-                <Link href="/admin">Appearance</Link>
+                <Link to="/admin">Appearance</Link>
               </li>
             </ul>
           </div>
           <div className="lgs:h-full lgs:w-[45%] order-first lgs:order-last flex h-1/3 px-4 items-center lgs:justify-end  text-white text-[20px]">
-            <Link href="/">Wallet: Mylink/fire</Link>
+            <Link to="/">Wallet: Mylink/fire</Link>
           </div>
         </div>
         <div className="lgs:h-full lgs:w-screen flex lgs:flex-row h-full">
