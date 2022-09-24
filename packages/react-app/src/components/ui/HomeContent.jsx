@@ -10,7 +10,7 @@ export const HomeContent = () => {
               <span>Your decentralized profile in one link.</span>
             </div>
             <div className="text-[28px] md:text-[36px] flex shrink">
-              <span>Share links of socials and address with a single domain.</span>
+              <span>Share links of socials and address with a single profile.</span>
             </div>
           </div>
           <div className="flex self-center lg:self-start px-4 py-2 lg:py-0 lg:w-[75%]">
