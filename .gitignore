@@ -13,7 +13,6 @@ packages/hardhat/*.txt
 **/node_modules
 
 packages/hardhat/artifacts*
-packages/react-app/src/contracts/*
 !packages/react-app/src/contracts/external_contracts.js
 packages/hardhat/cache*
 packages/**/data
