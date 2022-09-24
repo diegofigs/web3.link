@@ -60,6 +60,18 @@ code {
   background: var(--dark-primary-bg-color);
 }
 
+.NavBarBtn
+{
+  text-decoration: underline;
+  text-decoration: var(--accent-color-bg-color);
+}
+.NavBarBtn:hover
+{
+  background: var(--accent-color-bg-color);
+  border-color: var(--accent-color-bg-color);
+  color: white;
+}
+
 .adminNavBar
 {
   background-color: var(--accent-color-bg-color);

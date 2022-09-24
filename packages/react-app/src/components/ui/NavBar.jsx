@@ -16,16 +16,22 @@ export const NavBar = () => {
             </div>
             <ul className="hidden md:flex space-x-4 items-center pl-2">
               <li>
-                <Link to="/homemain" className="navBarText">Home</Link>
+                <Link to="/homemain" className="navBarText">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/about" className="navBarText">About</Link>
+                <Link to="/about" className="navBarText">
+                  About
+                </Link>
               </li>
               <li className="navBarText">Contact Us</li>
             </ul>
             <div className="hidden md:flex ml-auto space-x-4">
               <button>
-                <Link to="/admin" className="navBarText">Admin (provisional)</Link>{" "}
+                <Link to="/admin" className="navBarText">
+                  Admin (provisional)
+                </Link>{" "}
               </button>
               <button className="navBarText">Login</button>
               <button className="pr-4 navBarText">Sign Up</button>

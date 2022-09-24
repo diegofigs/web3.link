@@ -29,7 +29,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { Home, ExampleUI, Hints, Subgraph, HomeMain, Admin, Profile } from "./views";
+import { Home, ExampleUI, Hints, Subgraph, HomeMain, Admin, Profile, Appearance } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -398,6 +398,9 @@ function App(props) {
         </Route>
         <Route path="/profile">
           <Profile />
+        </Route>
+        <Route path="/appearance">
+          <Appearance />
         </Route>
       </Switch>
 
