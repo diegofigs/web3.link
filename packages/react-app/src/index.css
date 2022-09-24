@@ -84,6 +84,10 @@ code {
   border-color: var(--accent-color-bg-color);
 }
 
+.sizePreview
+{
+  max-height: inherit
+}
 .adminNavBG
 {
   @apply text-white;
@@ -150,7 +154,8 @@ code {
 }
 
 .SlideUp {
-  @apply bg-slate-400 w-screen h-screen absolute;
+  @apply w-screen h-screen absolute;
+  background-color: var(--light-primary-color);
   animation: slideup 0.3s linear;
   transition: 2s ease-in;
 }
