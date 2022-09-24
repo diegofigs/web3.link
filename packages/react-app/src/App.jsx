@@ -396,7 +396,7 @@ function App(props) {
         <Route path="/admin">
           <Admin />
         </Route>
-        <Route path="/profile">
+        <Route path="/:profileID" element={<Profile />}>
           <Profile />
         </Route>
         <Route path="/appearance">
