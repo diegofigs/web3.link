@@ -1,5 +1,5 @@
 import profilePic from "../NFT-Avatar.png";
-//       <img className="w-36 h-36 rounded-full object-scale-down relative" src={profilePic} alt="Avatar" />
+
 export default function Profile() {
   return (
     <div className="w-screen h-screen">
