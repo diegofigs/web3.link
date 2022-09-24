@@ -320,15 +320,6 @@ function App(props) {
             */}
 
           <Contract
-            name="YourContract"
-            price={price}
-            signer={userSigner}
-            provider={localProvider}
-            address={address}
-            blockExplorer={blockExplorer}
-            contractConfig={contractConfig}
-          />
-          <Contract
             name="ProfileFactory"
             price={price}
             signer={userSigner}
