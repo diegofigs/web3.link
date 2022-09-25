@@ -783,8 +783,157 @@ const DAIABI = [
     type: "function",
   },
 ];
-
+const PROFILEABI = [
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_username",
+        type: "string",
+      },
+      {
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    name: "activeLinks",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "bio",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    name: "links",
+    outputs: [
+      {
+        internalType: "string",
+        name: "name",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "link",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "name",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "owner",
+    outputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string[]",
+        name: "linkNames",
+        type: "string[]",
+      },
+      {
+        internalType: "string[]",
+        name: "linkList",
+        type: "string[]",
+      },
+    ],
+    name: "updateLinks",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "string",
+        name: "_name",
+        type: "string",
+      },
+      {
+        internalType: "string",
+        name: "_bio",
+        type: "string",
+      },
+    ],
+    name: "updateProfile",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "username",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+];
 // Mainnet DAI, Optimism and Arbitrium Rollup Contracts with local addresses
+// change Profile contract to personal one on devnet to test out methods
 module.exports = {
   1: {
     contracts: {
@@ -795,6 +944,14 @@ module.exports = {
       UNI: {
         address: "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
         abi: ERC20ABI,
+      },
+    },
+  },
+  31337: {
+    contracts: {
+      Profile: {
+        address: "0x3B02fF1e626Ed7a8fd6eC5299e2C54e1421B626B",
+        abi: PROFILEABI,
       },
     },
   },

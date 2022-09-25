@@ -95,7 +95,7 @@
       "chainId": "80001",
       "contracts": {
         "ProfileFactory": {
-          "address": "0x841fF417c708C82EF34912E231f05A0fd2F88a51",
+          "address": "0x3A7b3828f6e6B096C1879cC774F327d7537545DE",
           "abi": [
             {
               "inputs": [],
