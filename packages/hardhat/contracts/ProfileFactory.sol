@@ -17,16 +17,18 @@ contract ProfileFactory {
 
     fallback() external payable {}
 
-    Profile[] public profiles;
+    Profile[] private profiles;
+    mapping(address => address) public profilesByOwner;
+    mapping(string => address) public ownersByUsername;
 
     function createProfile(string memory _username) public {
         Profile profile = new Profile(_username, msg.sender);
         profiles.push(profile);
+        profilesByOwner[msg.sender] = address(profile);
+        ownersByUsername[_username] = msg.sender;
     }
 
     function allProfiles() public view returns (Profile[] memory) {
         return profiles;
     }
 }
-
-

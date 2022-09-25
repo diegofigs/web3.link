@@ -5,7 +5,7 @@
       "chainId": "31337",
       "contracts": {
         "ProfileFactory": {
-          "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "address": "0x0165878A594ca255338adfa4d48449f69242Eb8F",
           "abi": [
             {
               "inputs": [],
@@ -45,15 +45,34 @@
             {
               "inputs": [
                 {
-                  "internalType": "uint256",
+                  "internalType": "string",
                   "name": "",
-                  "type": "uint256"
+                  "type": "string"
                 }
               ],
-              "name": "profiles",
+              "name": "ownersByUsername",
               "outputs": [
                 {
-                  "internalType": "contract Profile",
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "name": "profilesByOwner",
+              "outputs": [
+                {
+                  "internalType": "address",
                   "name": "",
                   "type": "address"
                 }
@@ -76,7 +95,7 @@
       "chainId": "80001",
       "contracts": {
         "ProfileFactory": {
-          "address": "0x009EcA4040c0d40Be69F3528FAE670CD9ea419F1",
+          "address": "0x841fF417c708C82EF34912E231f05A0fd2F88a51",
           "abi": [
             {
               "inputs": [],
@@ -116,15 +135,34 @@
             {
               "inputs": [
                 {
-                  "internalType": "uint256",
+                  "internalType": "string",
                   "name": "",
-                  "type": "uint256"
+                  "type": "string"
                 }
               ],
-              "name": "profiles",
+              "name": "ownersByUsername",
               "outputs": [
                 {
-                  "internalType": "contract Profile",
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "",
+                  "type": "address"
+                }
+              ],
+              "name": "profilesByOwner",
+              "outputs": [
+                {
+                  "internalType": "address",
                   "name": "",
                   "type": "address"
                 }
