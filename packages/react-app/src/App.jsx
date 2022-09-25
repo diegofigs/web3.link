@@ -247,69 +247,78 @@ function App(props) {
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
-      <Header>
-        {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-        <div style={{ position: "relative", display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", flex: 1 }}>
-            {USE_NETWORK_SELECTOR && (
-              <div style={{ marginRight: 20 }}>
-                <NetworkSwitch
-                  networkOptions={networkOptions}
-                  selectedNetwork={selectedNetwork}
-                  setSelectedNetwork={setSelectedNetwork}
-                />
-              </div>
-            )}
-            <Account
-              useBurner={USE_BURNER_WALLET}
-              address={address}
-              localProvider={localProvider}
-              userSigner={userSigner}
-              mainnetProvider={mainnetProvider}
-              price={price}
-              web3Modal={web3Modal}
-              loadWeb3Modal={loadWeb3Modal}
-              logoutOfWeb3Modal={logoutOfWeb3Modal}
-              blockExplorer={blockExplorer}
-            />
-          </div>
-        </div>
-      </Header>
-      {yourLocalBalance.lte(ethers.BigNumber.from("0")) && (
-        <FaucetHint localProvider={localProvider} targetNetwork={targetNetwork} address={address} />
-      )}
-      <NetworkDisplay
-        NETWORKCHECK={NETWORKCHECK}
-        localChainId={localChainId}
-        selectedChainId={selectedChainId}
-        targetNetwork={targetNetwork}
-        logoutOfWeb3Modal={logoutOfWeb3Modal}
-        USE_NETWORK_SELECTOR={USE_NETWORK_SELECTOR}
-      />
-      <Menu style={{ textAlign: "center", marginTop: 20 }} selectedKeys={[location.pathname]} mode="horizontal">
-        <Menu.Item key="/">
-          <Link to="/">App Home</Link>
-        </Menu.Item>
-        <Menu.Item key="/debug">
-          <Link to="/debug">Debug Contracts</Link>
-        </Menu.Item>
-        <Menu.Item key="/hints">
-          <Link to="/hints">Hints</Link>
-        </Menu.Item>
-        <Menu.Item key="/exampleui">
-          <Link to="/exampleui">ExampleUI</Link>
-        </Menu.Item>
-        <Menu.Item key="/mainnetdai">
-          <Link to="/mainnetdai">Mainnet DAI</Link>
-        </Menu.Item>
-        <Menu.Item key="/subgraph">
-          <Link to="/subgraph">Subgraph</Link>
-        </Menu.Item>
-      </Menu>
 
       <Switch>
         <Route exact path="/">
+          <HomeMain />
+        </Route>
+        <Route exact path="/admin">
+          <Admin />
+        </Route>
+        <Route exact path="/appearance">
+          <Appearance />
+        </Route>
+        <Route exact path="/main">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
+          <Header>
+            {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
+            <div style={{ position: "relative", display: "flex", flexDirection: "column" }}>
+              <div style={{ display: "flex", flex: 1 }}>
+                {USE_NETWORK_SELECTOR && (
+                  <div style={{ marginRight: 20 }}>
+                    <NetworkSwitch
+                      networkOptions={networkOptions}
+                      selectedNetwork={selectedNetwork}
+                      setSelectedNetwork={setSelectedNetwork}
+                    />
+                  </div>
+                )}
+                <Account
+                  useBurner={USE_BURNER_WALLET}
+                  address={address}
+                  localProvider={localProvider}
+                  userSigner={userSigner}
+                  mainnetProvider={mainnetProvider}
+                  price={price}
+                  web3Modal={web3Modal}
+                  loadWeb3Modal={loadWeb3Modal}
+                  logoutOfWeb3Modal={logoutOfWeb3Modal}
+                  blockExplorer={blockExplorer}
+                />
+              </div>
+            </div>
+          </Header>
+          {yourLocalBalance.lte(ethers.BigNumber.from("0")) && (
+            <FaucetHint localProvider={localProvider} targetNetwork={targetNetwork} address={address} />
+          )}
+          <NetworkDisplay
+            NETWORKCHECK={NETWORKCHECK}
+            localChainId={localChainId}
+            selectedChainId={selectedChainId}
+            targetNetwork={targetNetwork}
+            logoutOfWeb3Modal={logoutOfWeb3Modal}
+            USE_NETWORK_SELECTOR={USE_NETWORK_SELECTOR}
+          />
+          <Menu style={{ textAlign: "center", marginTop: 20 }} selectedKeys={[location.pathname]} mode="horizontal">
+            <Menu.Item key="/">
+              <Link to="/">App Home</Link>
+            </Menu.Item>
+            <Menu.Item key="/debug">
+              <Link to="/debug">Debug Contracts</Link>
+            </Menu.Item>
+            <Menu.Item key="/hints">
+              <Link to="/hints">Hints</Link>
+            </Menu.Item>
+            <Menu.Item key="/exampleui">
+              <Link to="/exampleui">ExampleUI</Link>
+            </Menu.Item>
+            <Menu.Item key="/mainnetdai">
+              <Link to="/mainnetdai">Mainnet DAI</Link>
+            </Menu.Item>
+            <Menu.Item key="/subgraph">
+              <Link to="/subgraph">Subgraph</Link>
+            </Menu.Item>
+          </Menu>
           <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
         </Route>
         <Route exact path="/debug">
@@ -317,7 +326,7 @@ function App(props) {
                 🎛 this scaffolding is full of commonly used components
                 this <Contract/> component will automatically parse your ABI
                 and give you a form to interact with it locally
-            */}
+              */}
 
           <Contract
             name="YourContract"
@@ -390,17 +399,8 @@ function App(props) {
             mainnetProvider={mainnetProvider}
           />
         </Route>
-        <Route path="/homemain">
-          <HomeMain />
-        </Route>
-        <Route path="/admin">
-          <Admin />
-        </Route>
-        <Route path="/:profileID" element={<Profile />}>
+        <Route exact path="/:profileID" element={<Profile />}>
           <Profile />
-        </Route>
-        <Route path="/appearance">
-          <Appearance />
         </Route>
       </Switch>
 
