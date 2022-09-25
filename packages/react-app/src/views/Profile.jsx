@@ -1,6 +1,8 @@
 import profilePic from "../NFT-Avatar.png";
+import { useParams } from "react-router-dom";
 
 export default function Profile() {
+  let { profileID } = useParams();
   return (
     <div className="w-screen h-screen">
       <div className="w-full h-full flex flex-col items-center">
@@ -9,7 +11,7 @@ export default function Profile() {
             <img src={profilePic} alt="Avatar" className="rounded-full h-[178px] w-[178px]" />
           </div>
           <div className="w-1/2 text-white text-3xl">
-            <span>Name Name Name</span>
+            <span>{profileID}</span>
           </div>
         </div>
         <div className="p-8 overflow-y-auto w-3/4 h-3/4 flex flex-col items-center">
