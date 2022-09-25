@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { TrashIcon, HomeIcon, UserIcon } from "@heroicons/react/24/outline/";
-import profilePic from "../NFT-Avatar.png";
+import profilePic from "../assets/Ethereum-Logo-BackgroundLess.png";
 
 export default function Admin() {
   const whiteListBrandNames = ["instagram.com", "twitter.com", "twitch.tv", "tiktok.com", "youtube.com", "github.com"];
@@ -12,23 +12,23 @@ export default function Admin() {
       if (brand.includes(whiteListBrand)) {
         switch (whiteListBrand) {
           case "instagram.com":
-            return "instagramThemeLinks text-black";
+            return "instagramThemeLinks text-black hover:text-black";
           case "twitter.com":
-            return "twitterThemeLinks text-white";
+            return "twitterThemeLinks text-white hover:text-white";
           case "twitch.tv":
-            return "twitchThemeLinks text-white";
+            return "twitchThemeLinks text-white hover:text-white";
           case "tiktok.com":
-            return "tiktokThemeLinks text-white";
+            return "tiktokThemeLinks text-white hover:text-white";
           case "youtube.com":
-            return "youtubeThemeLinks text-white";
+            return "youtubeThemeLinks text-white hover:text-white";
           case "github.com":
-            return "githubThemeLinks text-white";
+            return "githubThemeLinks text-white hover:text-white";
           default:
-            return "adminContentsBG text-black";
+            return "nameBioBgColor text-black hover:text-black";
         }
       }
     }
-    return "adminContentsBG";
+    return "nameBioBgColor hover:text-black";
   };
 
   const [links, setLinks] = useState({});
@@ -79,15 +79,15 @@ export default function Admin() {
         </section>
         <div className="2xl:h-full 2xl:w-[97.5%] flex flex-col h-[84%]">
           <div className="2xl:h-[8%] 2xl:w-full flex 2xl:flex-row flex-col h-[12%]">
-            <div className="2xl:h-full 2xl:w-[66.33%] flex h-2/5">
-              <ul className="flex flex-row space-x-2 pl-6 lg:text-[28px] items-center pt-6 2xl:pt-2 text-lg">
-                <li className="px-6 w-1/2 h-full">
-                  <Link to="/admin" className="text-white hover:text-white NavBarBtn">
+            <div className="2xl:h-full flex">
+              <ul className="flex flex-row space-x-2 2xl:pl-6 lg:text-[28px] items-center pt-2 2xl:pt-2 text-lg h-full justify-center">
+                <li className="px-6 NavBarBtn hover:rounded-[1.1rem]">
+                  <Link to="/admin" className="text-white hover:text-white ">
                     Links
                   </Link>
                 </li>
-                <li className="px-6 w-1/2 h-full">
-                  <Link to="/appearance" className="text-white hover:text-white NavBarBtn hover:rounded-[1.1rem]">
+                <li className="px-6 NavBarBtn hover:rounded-[1.1rem]">
+                  <Link to="/appearance" className="text-white hover:text-white">
                     Appearance
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ export default function Admin() {
             </div>
             <div className="2xl:ml-auto 2xl:justify-center items-center flex h-1/2">
               <div className="2xl:pr-4 text-[20px] pl-2 2xl:pl-0 flex 2xl:pt-4">
-                <Link to="/" className="text-white">
+                <Link to="/" className="text-white hover:text-white">
                   Wallet: Mylink/fire
                 </Link>
               </div>
@@ -104,11 +104,11 @@ export default function Admin() {
           <div className="2xl:h-[92%] 2xl:w-full flex flex-row h-full">
             <div className="2xl:h-full 2xl:w-[65%] 2xl:max-h-full flex justify-start items-center 2xl:border-r-4 border-t-4 adminBorders flex-col">
               <div className="space-x-24 flex mb-4 2xl:h-[9%] 2xl:mb-0 flex-row w-screen 2xl:w-full justify-center 2xl:space-x-18">
-                <div className="pt-2 space-x-24 ">
+                <div className="mt-4 space-x-24 ">
                   <button className="AddNew_Suggestion_Btn" onClick={onAdd}>
                     Add New Link
                   </button>
-                  <button className="AddNew_Suggestion_Btn">Apply Change</button>
+                  <button className="Save_Btn">Save</button>
                 </div>
               </div>
               <div className="flex w-screen h-[80%] max-h-[80%] lg:h-[80%] lg:max-h-[80%] 2xl:w-full 2xl:h-[80%] 2xl:max-h-[80%] 2xl:mt-8 overflow-y-visible overflow-x-hidden">

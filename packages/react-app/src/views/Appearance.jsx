@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import { HomeIcon, UserIcon } from "@heroicons/react/24/outline/";
-import profilePic from "../NFT-Avatar.png";
+import profilePic from "../assets/Ethereum-Logo-BackgroundLess.png";
 
 export default function Admin() {
   const whiteListBrandNames = ["instagram.com", "twitter.com", "twitch.tv", "tiktok.com", "youtube.com", "github.com"];
@@ -11,27 +12,29 @@ export default function Admin() {
       if (brand.includes(whiteListBrand)) {
         switch (whiteListBrand) {
           case "instagram.com":
-            return "instagramThemeLinks";
+            return "instagramThemeLinks text-black";
           case "twitter.com":
-            return "twitterThemeLinks";
+            return "twitterThemeLinks text-white";
           case "twitch.tv":
-            return "twitchThemeLinks";
+            return "twitchThemeLinks text-white";
           case "tiktok.com":
-            return "tiktokThemeLinks";
+            return "tiktokThemeLinks text-white";
           case "youtube.com":
-            return "youtubeThemeLinks";
+            return "youtubeThemeLinks text-white";
           case "github.com":
-            return "githubThemeLinks";
+            return "githubThemeLinks text-white";
           default:
-            return "adminContentsBG";
+            return "adminContentsBG text-black";
         }
       }
     }
     return "adminContentsBG";
   };
-  // eslint-disable-next-line
-  const [links, setLinks] = useState({});
+
+  const [links] = useState({});
   const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+
   const [prev, setPrev] = useState(false);
   const handleClickPrev = () => setPrev(p => !p);
 
@@ -40,7 +43,7 @@ export default function Admin() {
 
   return (
     <div className="adminBG w-screen h-screen flex relative overflow-hidden">
-      <div className="adminBG w-screen h-screen flex flex-col 2xl:flex-row">
+      <div className="adminBG w-screen h-screen flex flex-col 2xl:flex-row justify-items-stretch">
         <section className="adminNavBar 2xl:h-full 2xl:w-[2.5%] h-[6%] flex 2xl:justify-items-center 2xl:flex-col flex-row 2xl:space-y-5 space-x-4 2xl:space-x-0 z-20">
           <button>
             <Link to="/homemain">
@@ -52,47 +55,61 @@ export default function Admin() {
             <UserIcon className="text-white 2xl:w-[80%] w-10 pl-2 pt-2 flex mr-auto 2xl:mr-0 2xl:mb-auto hover:animate-pulse" />
           </button>
         </section>
-        <div className="2xl:h-full 2xl:w-[55%] flex flex-col h-[84%]">
-          <div className="2xl:h-[68px] 2xl:w-screen flex 2xl:flex-row flex-col h-[10%]">
-            <div className="2xl:h-full 2xl:w-[50%] flex h-2/3">
-              <ul className="flex flex-row space-x-2 pl-6 lg:text-[28px] items-center pt-6 text-lg">
-                <li className="NavBarBtn hover:rounded-[1.1rem] px-6">
+        <div className="2xl:h-full 2xl:w-[97.5%] flex flex-col h-[84%]">
+          <div className="2xl:h-[8%] 2xl:w-full flex 2xl:flex-row flex-col h-[12%]">
+            <div className="2xl:h-full flex">
+              <ul className="flex flex-row space-x-2 2xl:pl-6 lg:text-[28px] items-center pt-2 2xl:pt-2 text-lg h-full justify-center">
+                <li className="px-6 NavBarBtn hover:rounded-[1.1rem]">
                   <Link to="/admin" className="text-white hover:text-white">
                     Links
                   </Link>
                 </li>
-                <li className="NavBarBtn hover:rounded-[1.1rem] px-6">
+                <li className="px-6 NavBarBtn hover:rounded-[1.1rem]">
                   <Link to="/appearance" className="text-white hover:text-white">
                     Appearance
                   </Link>
                 </li>
               </ul>
             </div>
-            <div className="2xl:h-full 2xl:w-[45%] order-first 2xl:order-last flex h-1/3 px-4 items-center 2xl:justify-end  text-white text-[20px]">
-              <Link to="/" className="text-white">
-                Wallet: Mylink/fire
-              </Link>
+            <div className="2xl:ml-auto 2xl:justify-center items-center flex h-1/2">
+              <div className="2xl:pr-4 text-[20px] pl-2 2xl:pl-0 flex 2xl:pt-4">
+                <Link to="/" className="text-white hover:text-white">
+                  Wallet: Mylink/fire
+                </Link>
+              </div>
             </div>
           </div>
-          <div className="2xl:h-full 2xl:w-screen flex 2xl:flex-row h-full">
-            <div className="2xl:h-full 2xl:w-[65%] flex justify-center 2xl:justify-start">
-              <div className="flex-1 flex justify-center 2xl:w-[60%] 2xl:border-r-4 border-t-4 adminBorders">
-                <div className="my-4 flex-1">
-                  <div className="space-x-24 flex mb-4 2xl:mb-0 flex-row w-screen 2xl:w-full flex-1 justify-center 2xl:space-x-18 2xl:mt-5">
-                    <button className="AddNew_Suggestion_Btn">Apply Change</button>
-                  </div>
-                  <div className="w-screen h-[70%] psm:h-[80%] md:h-[85%] lg:h-[75%] 2xl:w-full 2xl:h-[88%] 2xl:mt-8 overflow-y-auto overflow-x-hidden">
-                    <div className="flex flex-1 w-screen flex-col 2xl:w-full items-center">
-                      <div className="flex flex-1 w-[80%] 2xl:w-full flex-col 2xl:space-y-8 space-y-4 items-center">
-                        <div className="w-[75%] h-[75%] p-4 flex flex-col items-center justify-center bg-white rounded-full">
-                          <input
-                            className="flex flex-0.5 w-full pt-2 px-2 bg-transparent"
-                            type="text"
-                            placeholder="Enter display name"
-                            value={name}
-                            onChange={e => setName(e.target.value)}
-                          />
-                        </div>
+          <div className="2xl:h-[92%] 2xl:w-full flex flex-row h-full">
+            <div className="2xl:h-full 2xl:w-[65%] 2xl:max-h-full flex justify-start items-center 2xl:border-r-4 border-t-4 adminBorders flex-col">
+              <div className="space-x-24 flex mb-4 2xl:h-[9%] 2xl:mb-0 flex-row w-screen 2xl:w-full justify-center 2xl:space-x-18">
+                <div className="mt-4 space-x-24 ">
+                  <button className="Save_Btn">Save</button>
+                </div>
+              </div>
+              <div className="w-screen h-[70%] psm:h-[80%] md:h-[85%] lg:h-[75%] 2xl:w-full 2xl:h-[88%] 2xl:mt-8 overflow-y-auto overflow-x-hidden">
+                <div className="flex flex-1 w-screen flex-col 2xl:w-full items-center h-[50%]">
+                  <div className="flex flex-1 w-[80%] 2xl:w-full flex-col 2xl:space-y-8 space-y-4 items-center">
+                    <div className="w-[75%] h-[75%] p-4 flex flex-col nameBioBgColor rounded-2xl gap-y-7">
+                      <div className="w-full h-[15%]">
+                        <input
+                          className="flex flex-0.5 w-full pt-2 px-2 bg-transparent h-full text-white "
+                          type="text"
+                          placeholder="Enter display name"
+                          value={name}
+                          onChange={e => setName(e.target.value)}
+                        />
+                      </div>
+                      <div className="w-full h-[85%]">
+                        <textarea
+                          rows="4"
+                          cols="100"
+                          className="flex flex-0.5 w-full px-2 bg-transparent h-full text-white "
+                          type="text"
+                          placeholder="Enter bio"
+                          value={bio}
+                          multiline={true}
+                          onChange={e => setBio(e.target.value)}
+                        />
                       </div>
                     </div>
                   </div>
@@ -102,11 +119,11 @@ export default function Admin() {
             <div
               className={
                 !prev
-                  ? "2xl:h-full 2xl:w-[32.5%] hidden 2xl:inline border-t-4 adminBorders  text-white"
-                  : "SlideUp -translate-y-[115px]"
+                  ? "2xl:h-full 2xl:max-h-full 2xl:w-[35%] hidden 2xl:flex border-t-4 adminBorders  text-white"
+                  : "SlideUp -translate-y-[115px] flex"
               }
             >
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center self-start">
                 <div className="2xl:w-[45%] w-[55%] lg:w-[45%] h-[60%] bg-white flex flex-col border-black border-[12px] rounded-[48px] z-10 overflow-hidden">
                   <div className="w-full h-full flex flex-col items-center overflow-y-auto overscroll-contain overflow-hidden ">
                     <div className="w-full h-1/4 flex flex-col items-center adminBG justify-center">
@@ -117,10 +134,15 @@ export default function Admin() {
                         <span>Name Name Name</span>
                       </div>
                     </div>
-                    <div className="p-4 w-full h-3/4 max-h-[75%] flex">
-                      <div className="flex w-full flex-col space-y-4 items-center">
+                    <div className="p-4 w-full h-3/4 max-h-[75%] overflow-y-visible overflow-x-hidden">
+                      <div className="flex w-full flex-col space-y-3 items-center">
                         {Object.entries(links).map(([key, value]) => (
-                          <div key={key} className="flex flex-col  w-[80%] h-[20%]">
+                          <div
+                            key={key}
+                            className={
+                              value.name !== "" && value.link !== "" ? "flex flex-col  w-[80%] h-[20%]" : "hidden"
+                            }
+                          >
                             <a
                               target="_blank"
                               rel="noreferrer"
@@ -129,7 +151,7 @@ export default function Admin() {
                               )}`}
                               href={value.link}
                             >
-                              <span className="flex flex-0.5 pt-2 px-2 bg-transparent self-center justify-center mx-auto mb-3 text-black">
+                              <span className="flex flex-0.5 pt-2 px-2 bg-transparent self-center justify-center mx-auto mb-3">
                                 {value.name}
                               </span>
                             </a>
