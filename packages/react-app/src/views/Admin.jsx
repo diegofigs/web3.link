@@ -93,8 +93,8 @@ export default function Admin() {
                 </li>
               </ul>
             </div>
-            <div className="2xl:ml-auto 2xl:justify-center items-center flex h-1/2">
-              <div className="2xl:pr-4 text-[20px] pl-2 2xl:pl-0 flex 2xl:pt-4">
+            <div className="2xl:ml-auto 2xl:justify-center items-center flex h-1/2 2xl:h-full">
+              <div className="2xl:pr-4 text-[20px] pl-2 2xl:pl-0 flex">
                 <Link to="/" className="text-white hover:text-white">
                   Wallet: Mylink/fire
                 </Link>
