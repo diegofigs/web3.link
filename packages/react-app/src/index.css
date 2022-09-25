@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --dark-primary-bg-color: #303f9f;
+  --accent-color-bg-color: #009688;
+  --light-primary-color: #c5cae9;
+  --primary-text-color: #212121;
+  --primary-color: #3f51b5;
+  --secondary-text: #757575;
+  --text-icons: #ffffff;
+  --divider-color: #bdbdbd;
+}
 .App {
   text-align: center;
 }
@@ -12,4 +22,167 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.twitterThemeLinks {
+  border-color: rgb(29 161 242);
+  background-color: rgb(29 161 242);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.twitchThemeLinks {
+  background-color: rgb(145 70 255);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.youtubeThemeLinks {
+  background-color: rgb(255, 0, 0);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.tiktokThemeLinks {
+  background: rgb(0, 242, 234);
+  background: linear-gradient(117deg, rgba(0, 242, 234, 1) 0%, rgba(0, 7, 8, 1) 53%, rgba(255, 0, 80, 1) 100%);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.instagramThemeLinks {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.githubThemeLinks {
+  background: rgb(27, 31, 34);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+.adminBG {
+  background: var(--dark-primary-bg-color);
+}
+
+.NavBarBtn
+{
+  text-decoration: underline;
+  text-decoration: var(--accent-color-bg-color);
+}
+.NavBarBtn:hover
+{
+  background: var(--accent-color-bg-color);
+  border-color: var(--accent-color-bg-color);
+  color: white;
+}
+
+.adminNavBar
+{
+  background-color: var(--accent-color-bg-color);
+}
+.adminContentsBG {
+  background-color: var(--accent-color-bg-color)
+
+}
+.adminBorders {
+  border-color: var(--accent-color-bg-color);
+}
+
+.sizePreview
+{
+  max-height: inherit
+}
+.adminNavBG
+{
+  @apply text-white;
+}
+.adminNavBG:hover {
+  background: rgb(249, 246, 238);
+  border-color: rgb(249, 246, 238);
+}
+
+.homeBg
+{
+  background-color: var(--primary-color);
+}
+.navBarBG
+{
+  background-color: var(--dark-primary-bg-color);
+  
+}
+
+.navBarText
+{
+  color: white; 
+}
+.AddNew_Suggestion_Btn {
+  @apply rounded-[1.1rem]  border-x-[1rem] lgs:border-x-[5rem] border-y-[0.5rem] text-[20px] font-bold;
+  background: var(--accent-color-bg-color);
+  border-color: var(--accent-color-bg-color);
+  color: white;
+}
+
+.HomeSetting {
+  @apply flex flex-col md:flex-row md:h-[750px] md:w-screen  translate-y-[60px] md:translate-y-[120px] md:justify-center gap-5 md:gap-5;
+}
+.SlideLeft {
+  @apply fixed bg-slate-400 w-screen h-screen;
+  animation: slideleft 0.3s linear;
+  transition: 1s ease-in;
+}
+@keyframes slideleft {
+  0% {
+    opacity: 0;
+    transform: translatex(600px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translatex(0px);
+  }
+}
+
+.SlideRight {
+  @apply fixed bg-slate-400 w-screen h-screen;
+  animation: slideRight 0.3s linear;
+  transition: 1s ease-in;
+}
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translatex(0px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translatex(600px);
+  }
+}
+
+.SlideUp {
+  @apply w-screen h-screen absolute;
+  background-color: var(--light-primary-color);
+  animation: slideup 0.3s linear;
+  transition: 2s ease-in;
+}
+@keyframes slideup {
+  0% {
+    opacity: 0%;
+    transform: translatey(600px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translatey(0px);
+  }
+}
+
+.SlideLeftMenu {
+  animation: slideleftmenu 0.4s linear;
+  transition: 1s ease-in;
+  transition-delay: 1.1s;
+}
+
+@keyframes slideleftmenu {
+  0% {
+    opacity: 0;
+    transform: translatex(600px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translatex(0px);
+  }
 }
