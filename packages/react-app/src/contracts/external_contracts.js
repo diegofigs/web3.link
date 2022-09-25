@@ -955,4 +955,12 @@ module.exports = {
       },
     },
   },
+  80001: {
+    contracts: {
+      Profile: {
+        address: "0x051eBED7965c271036A81786c3a9C225cC6558b0",
+        abi: PROFILEABI,
+      },
+    },
+  },
 };
