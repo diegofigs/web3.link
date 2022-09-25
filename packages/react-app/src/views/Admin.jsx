@@ -5,6 +5,7 @@ import { TrashIcon, HomeIcon, UserIcon } from "@heroicons/react/24/outline/";
 import profilePic from "../assets/Ethereum-Logo-BackgroundLess.png";
 
 export default function Admin() {
+  
   const whiteListBrandNames = ["instagram.com", "twitter.com", "twitch.tv", "tiktok.com", "youtube.com", "github.com"];
 
   const BrandBackground = brand => {
@@ -95,9 +96,9 @@ export default function Admin() {
             </div>
             <div className="2xl:ml-auto 2xl:justify-center items-center flex h-1/2 2xl:h-full">
               <div className="2xl:pr-4 text-[20px] pl-2 2xl:pl-0 flex">
-                <Link to="/" className="text-white hover:text-white">
+                <Route exact path="/:profileID" className="text-white hover:text-white">
                   Wallet: Mylink/fire
-                </Link>
+                </Route>
               </div>
             </div>
           </div>
