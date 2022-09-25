@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --dark-primary-bg-color: #303f9f;
-  --accent-color-bg-color: #009688;
-  --light-primary-color: #c5cae9;
-  --primary-text-color: #212121;
-  --primary-color: #3f51b5;
-  --secondary-text: #757575;
+  --dark-primary-bg-color: #252d42;
+  --accent-color-bg-color: #00818A;
+  --light-primary-color: #404B69;
+  --primary-text-color: white;
+  --primary-color: #283149;
+  --secondary-text: #black;
   --text-icons: #ffffff;
   --divider-color: #bdbdbd;
 }
@@ -62,9 +62,9 @@ code {
 
 .NavBarBtn
 {
-  text-decoration: underline;
-  text-decoration: var(--accent-color-bg-color);
+  @apply hover:rounded-[1.1rem];
 }
+
 .NavBarBtn:hover
 {
   background: var(--accent-color-bg-color);
@@ -72,6 +72,10 @@ code {
   color: white;
 }
 
+.nameBioBgColor
+{
+  background-color: var(--light-primary-color);
+}
 .adminNavBar
 {
   background-color: var(--accent-color-bg-color);
@@ -91,15 +95,70 @@ code {
 .adminNavBG
 {
   @apply text-white;
+  color:white;
 }
 .adminNavBG:hover {
   background: rgb(249, 246, 238);
   border-color: rgb(249, 246, 238);
 }
 
+.accentColorBG
+{
+  background-color: var(--accent-color-bg-color);
+}
+
+.dividerColor
+{
+  border-color: var(--divider-color);
+}
 .homeBg
 {
-  background-color: var(--primary-color);
+  background-color: var(--light-primary-color);
+}
+.homeContentsBG 
+{
+  background-color: rgba(40, 49, 73, 0.25);;
+}
+
+.css-current-storage {
+  animation-name: colorPulse;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-timing-function: ease-in-out;
+}
+
+.avatar {
+	box-sizing: border-box;
+	border: 5px white solid;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+
+@keyframes colorPulse {
+to {
+color: var(--accent-color-bg-color);
+}
 }
 .navBarBG
 {
@@ -111,8 +170,22 @@ code {
 {
   color: white; 
 }
+
+.Save_Btn {
+  @apply rounded-[1.1rem]  border-x-[1rem] lgs:border-x-[1rem] border-y-[1rem] text-[20px] font-bold;
+  background: 	rgb(134, 1, 175);
+  border-color: 	rgb(134, 1, 175);
+  color: white;
+}
+
+.Save_Btn_Red {
+  @apply rounded-[1.1rem]  border-x-[1rem] lgs:border-x-[1rem] border-y-[1rem] text-[20px] font-bold;
+  background: 	rgb(182, 5, 52);
+  border-color: 	rgb(182, 5, 52);
+  color: white;
+}
 .AddNew_Suggestion_Btn {
-  @apply rounded-[1.1rem]  border-x-[1rem] lgs:border-x-[5rem] border-y-[0.5rem] text-[20px] font-bold;
+  @apply rounded-[1.1rem]  border-x-[1rem] lgs:border-x-[1rem] border-y-[1rem] text-[20px] font-bold;
   background: var(--accent-color-bg-color);
   border-color: var(--accent-color-bg-color);
   color: white;
@@ -122,7 +195,8 @@ code {
   @apply flex flex-col md:flex-row md:h-[750px] md:w-screen  translate-y-[60px] md:translate-y-[120px] md:justify-center gap-5 md:gap-5;
 }
 .SlideLeft {
-  @apply fixed bg-slate-400 w-screen h-screen;
+  @apply fixed w-screen h-screen;
+  background-color: var(--light-primary-color);
   animation: slideleft 0.3s linear;
   transition: 1s ease-in;
 }

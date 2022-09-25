@@ -10,29 +10,24 @@ export const NavBar = () => {
     <div className="relative flex justify-center w-screen z-40 ">
       <div className="w-screen drop-shadow-lg navBarBG rounded-full  mx-8 lg:mx-[150px] z-50 mt-8">
         <div className="px-2 flex my-2 sm:my-5">
-          <div className="flex w-full items-center justify-center">
+          <div className="flex w-full items-center justify-center flex-row">
             <div className="text-2xl font-bold ml-4 lg:text-3xl pr-4 navBarText">
               <span>Web 3.0 Link</span>
             </div>
-            <ul className="hidden md:flex space-x-4 pl-2 pt-6">
-              <li>
-                <Link to="/homemain" className="navBarText">
+            <div className="hidden md:flex space-x-4 pl-2 justify-center self-center">
+              <button>
+                <Link to="/" className="text-white text-2xl hover:text-white">
                   Home
                 </Link>
-              </li>
-              <li>
-                <Link to="/about" className="navBarText">
-                  About
-                </Link>
-              </li>
-            </ul>
+              </button>
+            </div>
             <div className="hidden md:flex ml-auto space-x-4">
               <button>
-                <Link to="/admin" className="navBarText">
-                  Admin (provisional)
+                <Link to="/admin" className="text-white text-2xl hover:text-white">
+                  Admin
                 </Link>
               </button>
-              <button className="navBarText pr-4">Login Wallet</button>
+              <button className="navBarText pr-4 text-2xl">Login Wallet</button>
             </div>
             <div className="md:hidden flex flex-row px-2 ml-auto" onClick={handleClickNav}>
               {!nav ? <Bars3Icon className="w-12" /> : <XMarkIcon className="w-12" />}
@@ -41,19 +36,19 @@ export const NavBar = () => {
         </div>
       </div>
 
-      <div className={!nav ? "hidden" : "md:hidden SlideLeft flex flex-col"}>
-        <ul className="mt-28 text-[32px]">
-          <li className="border-b-2 border-zinc-300 w-full  text-center">
-            <Link to="/homemain">Home</Link>
+      <div className={!nav ? "hidden" : "md:hidden SlideLeft flex flex-col overscroll-none"}>
+        <ul className="mt-[150px] text-[32px]">
+          <li className="border-b-2 dividerColor w-full  text-center">
+            <Link to="/" className="text-white">
+              Home
+            </Link>
           </li>
-          <li className="border-b-2 border-zinc-300 w-full text-center">
-            <Link to="/about">About</Link>
+          <li className="border-b-2 dividerColor w-full text-center">
+            <Link to="/admin" className="text-white">
+              Admin
+            </Link>
           </li>
-          <li className="border-b-2 border-zinc-300 w-full text-center">
-            <Link to="/admin">Admin (provisional)</Link>
-          </li>
-          <button className="border-b-2 border-zinc-300 px-8 w-screen text-black  md:mx-auto">Sign In</button>
-          <button className="border-b-2 border-zinc-300 px-8 w-screen md:mx-auto">Sign Up</button>
+          <button className="border-b-2 dividerColor px-8 w-screen text-white  md:mx-auto">Login Wallet</button>
         </ul>
       </div>
     </div>
