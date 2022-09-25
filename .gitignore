@@ -12,7 +12,6 @@ packages/hardhat/*.txt
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 **/node_modules
 
-packages/hardhat/artifacts*
 !packages/react-app/src/contracts/external_contracts.js
 packages/hardhat/cache*
 packages/**/data
@@ -50,7 +49,6 @@ build
 
 # Hardhat files
 cache
-artifacts
 
 # misc
 .DS_Store

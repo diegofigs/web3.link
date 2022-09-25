@@ -5,7 +5,7 @@
       "chainId": "31337",
       "contracts": {
         "ProfileFactory": {
-          "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+          "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
           "abi": [
             {
               "inputs": [],
@@ -33,7 +33,7 @@
               "inputs": [
                 {
                   "internalType": "string",
-                  "name": "newUsername",
+                  "name": "_username",
                   "type": "string"
                 }
               ],
@@ -43,11 +43,17 @@
               "type": "function"
             },
             {
-              "inputs": [],
-              "name": "owner",
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "name": "profiles",
               "outputs": [
                 {
-                  "internalType": "address",
+                  "internalType": "contract Profile",
                   "name": "",
                   "type": "address"
                 }
@@ -70,7 +76,7 @@
       "chainId": "80001",
       "contracts": {
         "ProfileFactory": {
-          "address": "0x944A03E24056FB240367fdb6243be523fD0552eC",
+          "address": "0x009EcA4040c0d40Be69F3528FAE670CD9ea419F1",
           "abi": [
             {
               "inputs": [],
@@ -98,7 +104,7 @@
               "inputs": [
                 {
                   "internalType": "string",
-                  "name": "newUsername",
+                  "name": "_username",
                   "type": "string"
                 }
               ],
@@ -108,11 +114,17 @@
               "type": "function"
             },
             {
-              "inputs": [],
-              "name": "owner",
+              "inputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "name": "profiles",
               "outputs": [
                 {
-                  "internalType": "address",
+                  "internalType": "contract Profile",
                   "name": "",
                   "type": "address"
                 }
