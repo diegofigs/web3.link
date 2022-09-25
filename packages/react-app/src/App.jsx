@@ -59,7 +59,7 @@ const initialNetwork = NETWORKS.mumbai; // <------- select your target frontend 
 const DEBUG = true;
 const NETWORKCHECK = true;
 const USE_BURNER_WALLET = true; // toggle burner wallet feature
-const USE_NETWORK_SELECTOR = false;
+const USE_NETWORK_SELECTOR = true;
 
 const web3Modal = Web3ModalSetup();
 
@@ -73,7 +73,7 @@ const providers = [
 function App(props) {
   // specify all the chains your app is available on. Eg: ['localhost', 'mainnet', ...otherNetworks ]
   // reference './constants.js' for other networks
-  const networkOptions = [initialNetwork.name, "mainnet", "goerli"];
+  const networkOptions = [initialNetwork.name, "mumbai"];
 
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
@@ -258,8 +258,17 @@ function App(props) {
         <Route exact path="/appearance">
           <Appearance />
         </Route>
-        <Route exact path="/main">
+        <Route exact path="/home">
           {/* pass in any web3 props to this Home component. For example, yourLocalBalance */}
+          <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
+        </Route>
+        <Route exact path="/debug">
+          {/*
+                🎛 this scaffolding is full of commonly used components
+                this <Contract/> component will automatically parse your ABI
+                and give you a form to interact with it locally
+              */}
+
           <Header>
             {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
             <div style={{ position: "relative", display: "flex", flexDirection: "column" }}>
@@ -319,15 +328,6 @@ function App(props) {
               <Link to="/subgraph">Subgraph</Link>
             </Menu.Item>
           </Menu>
-          <Home yourLocalBalance={yourLocalBalance} readContracts={readContracts} />
-        </Route>
-        <Route exact path="/debug">
-          {/*
-                🎛 this scaffolding is full of commonly used components
-                this <Contract/> component will automatically parse your ABI
-                and give you a form to interact with it locally
-              */}
-
           <Contract
             name="ProfileFactory"
             price={price}
